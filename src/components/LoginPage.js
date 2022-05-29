@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { SpotifyAuth, Scopes } from 'react-spotify-auth';
-import { SpotifyApiContext } from 'react-spotify-api';
 import 'react-spotify-auth/dist/index.css';
 import Cookies from 'js-cookie';
 import {useState, useEffect} from 'react';
@@ -11,6 +10,7 @@ const LoginPage = () => {
 
     
     const [token, setToken] = useState("")
+    //use effect when token is gotten to make an api call that and send information to art page
 
     return ( 
         <div>
@@ -24,13 +24,15 @@ const LoginPage = () => {
                 {!token && <SpotifyAuth 
                     redirectUri='http://localhost:3000/callback'
                     clientID='d88050dfc12a4cf98299d19f165ddb92'
-                    scopes={['user-read-email']}
+                    scopes={['user-read-email', 'playlist-read-private', 'user-top-read']}
                     onAccessToken={(token) =>setToken(token)}/>}
                 </Information>
             </NavbarContainer>
             
             {token ? 
-            <ArtPage token={token}/>: <About/>}
+            <ArtPage token={token}/>: <div>
+                <About/>
+                </div>}
         </div>
         
      );
