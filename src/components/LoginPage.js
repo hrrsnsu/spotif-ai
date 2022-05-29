@@ -22,6 +22,7 @@ const LoginPage = () => {
                 <Information>
                     <Info> Created by Harrison Su </Info>
                 {!token && <SpotifyAuth 
+                    redirectUri='https://celebrated-melomakarona-67e885.netlify.app/callback'
                     clientID='d88050dfc12a4cf98299d19f165ddb92'
                     scopes={['user-read-email', 'playlist-read-private', 'user-top-read']}
                     onAccessToken={(token) =>setToken(token)}/>}
