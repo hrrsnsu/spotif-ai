@@ -13,20 +13,8 @@ const ArtPage = ({token}) => {
     during this, we have a use effect that reads when prompt changes, when ti does, it makes an api call to our backend to run the model
     */
 
-    const [playlists, setPlaylists] = useState([])
     const [artists, setArtists] = useState([])
     const [tracks, setTracks] = useState([])
-
-    const getPlaylists = () => {
-        axios.get("	https://api.spotify.com/v1/me/playlists", {
-            headers: {
-                Authorization: "Bearer " + token
-            },
-        }).then((response) => {
-            setPlaylists(response.data.items)
-            console.log(response.data.items)
-        })
-    }
 
     const getArtists = () => {
         axios.get("	https://api.spotify.com/v1/me/top/artists", {
@@ -79,7 +67,7 @@ const ArtPage = ({token}) => {
         getArtists()
         getTracks()
         console.log("Use effect!")
-    },[])
+    })
 
     return ( 
     

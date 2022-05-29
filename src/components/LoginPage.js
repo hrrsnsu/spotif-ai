@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { SpotifyAuth, Scopes } from 'react-spotify-auth';
+import { SpotifyAuth } from 'react-spotify-auth';
 import 'react-spotify-auth/dist/index.css';
-import Cookies from 'js-cookie';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import logo from '../images/spotify_logo.svg';
 import About from './About'
 import ArtPage from './ArtPage'
