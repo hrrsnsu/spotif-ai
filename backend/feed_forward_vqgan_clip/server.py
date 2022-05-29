@@ -4,6 +4,7 @@ from main import test
 
 app = Flask(__name__)
 
+
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
@@ -14,4 +15,4 @@ def get_image(prompt):
 
     return send_file(filename, as_attachment=True, mimetype='image/png')
 
-app.run()
+app.run(host='0.0.0.0' , port=5000)
