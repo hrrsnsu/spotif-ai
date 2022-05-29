@@ -67,7 +67,7 @@ const ArtPage = ({token}) => {
         getArtists()
         getTracks()
         console.log("Use effect!")
-    },[getArtists, getTracks])
+    },[])
 
     return ( 
     
